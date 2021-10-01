@@ -101,3 +101,17 @@ form.create-note button {
   cursor: pointer;
   outline: none;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.links {
+  display: flex;
+  justify-content: space-around;
+}
