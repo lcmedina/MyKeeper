@@ -1,41 +1,33 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Note from "./components/Note";
-import CreateArea from "./components/CreateArea";
+import NoteDisplay from "./components/NoteDisplay";
+import Upgrade from "./components/Upgrade";
+import Contact from "./components/Contact";
+import {BrowserRouter as Router, Route, Switch } from "react-router-dom"; 
 
 function App() {
-  const [notes, setNotes] = useState([]);
-
-  const addNote = (newNote) => {
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNote];
-    });
-  };
-
-  const deleteNote = (id) => {
-   setNotes(prevNotes => {
-     return prevNotes.filter((noteItem, index) => {
-       return index !== id;
-     })
-   })
-  }
 
   return (
-    <div>
+    <Router>
+      <div className="App">
       <Header />
-      <CreateArea onAdd={addNote} />
-      {notes.map((eachNote, index) => {
-        return <Note
-        key={index} //swap out for uuid
-        id={index}
-        title={eachNote.title}
-        content={eachNote.content}
-        onDelete={deleteNote}
-        />
-      })}
+      <div className="content">
+        <Switch>
+          <Route exact path="/">
+            <NoteDisplay/>
+          </Route>
+          <Route path="/upgrade">
+            <Upgrade/>
+          </Route>
+          <Route path="/contact">
+            <Contact/>
+          </Route>
+        </Switch>
+      </div>
       <Footer />
     </div>
+    </Router>
   );
 }
 
