@@ -1,36 +1,37 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Box from '@mui/material/Box';
+import React, { useState } from "react";
+import ReactDOM from "react-dom"
+import TextField from '@mui/material/TextField';
+import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
+import { useHistory } from 'react-router-dom'
 
-const Upgrade = () => {
-    const buttons = [
-        <Button key="one">
-        <h1>5GB Storage</h1>
-        <p>$5/month</p>
-        </Button>,
-        <Button key="two">
-        <h1>10GB Storage</h1>  
-        <p>$10/month</p>
-        </Button>,
-        <Button key="three">
-        <h1>15GB Storage</h1>  
-        <p>$15/month</p>
-        </Button>,
-      ];
 
-    return (
-        <div  className="center">
-        <Box sx={{ display: 'flex','& > *': { m: 1,},}}>
-            <ButtonGroup
-            orientation="vertical"
-            aria-label="vertical contained button group"
-            variant="text">
-            {buttons}
-            </ButtonGroup>
-        </Box> 
-        </div>
-     );
+function Donate() {
+    const history = useHistory();
+  return (
+    <PayPalScriptProvider options={{ "client-id": "test" }}>
+    <TextField type="number" id="amount"></TextField>
+   <PayPalButtons
+       style={{ layout: "horizontal" }}
+       createOrder={(data, actions) => {
+           return actions.order.create({
+               purchase_units: [
+                   {
+                       amount: {
+                           value: document.getElementById('amount').value,
+                       },
+                   },
+               ],
+           });
+       }}
+       onApprove={(data, actions) => {
+           return actions.order.capture().then((details) => {
+               alert("Thanks for supporting us " + details.payer.name.given_name + "!");
+                history.push('/')
+           })
+       }}
+   />
+</PayPalScriptProvider>
+  );
 }
- 
-export default Upgrade;
+
+export default Donate;

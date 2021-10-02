@@ -115,3 +115,8 @@ form.create-note button {
   display: flex;
   justify-content: space-around;
 }
+.text-link{
+  color: white;
+  text-decoration: inherit;
+
+}
