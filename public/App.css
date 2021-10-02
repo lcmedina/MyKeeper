@@ -2,10 +2,9 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-}
-html {
   font-family: "Montserrat", sans-serif;
 }
+
 body {
   background: #eee;
   padding: 0 16px;
@@ -100,4 +99,23 @@ form.create-note button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
   cursor: pointer;
   outline: none;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+.text-link{
+  color: white;
+  text-decoration: inherit;
+
 }
