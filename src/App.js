@@ -2,13 +2,15 @@ import React from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import NoteDisplay from "./components/NoteDisplay";
-import Upgrade from "./components/Upgrade";
+import Donate from "./components/Donate";
 import Contact from "./components/Contact";
+import ThemeProvider from "./components/ThemeContext";
 import {BrowserRouter as Router, Route, Switch } from "react-router-dom"; 
 
 function App() {
 
   return (
+    <ThemeProvider>
     <Router>
       <div className="App">
       <Header />
@@ -17,8 +19,8 @@ function App() {
           <Route exact path="/">
             <NoteDisplay/>
           </Route>
-          <Route path="/upgrade">
-            <Upgrade/>
+          <Route path="/donate">
+            <Donate/>
           </Route>
           <Route path="/contact">
             <Contact/>
@@ -28,6 +30,7 @@ function App() {
       <Footer />
     </div>
     </Router>
+    </ThemeProvider>
   );
 }
 

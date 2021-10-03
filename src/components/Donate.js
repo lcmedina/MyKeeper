@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom"
 import TextField from '@mui/material/TextField';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { useHistory } from 'react-router-dom'
+import { useHistory, Redirect } from 'react-router-dom'
 
 
 function Donate() {
@@ -25,8 +25,7 @@ function Donate() {
        }}
        onApprove={(data, actions) => {
            return actions.order.capture().then((details) => {
-               alert("Thanks for supporting us " + details.payer.name.given_name + "!");
-                history.push('/')
+              alert("Thanks for donating " + details.payer.name.given_name + "!")
            })
        }}
    />
