@@ -1,6 +1,7 @@
 import React from "react";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
+
 const Note = (props) => {
     const handleClick = () => {
         props.onDelete(props.id)
