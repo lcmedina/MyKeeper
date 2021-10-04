@@ -3,13 +3,15 @@ import TextField from '@mui/material/TextField';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
 import InputAdornment from '@mui/material/InputAdornment';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import { useTheme } from "./ThemeContext";
 
 
 function Donate() {
+    const darkTheme = useTheme()
   return (
     <PayPalScriptProvider options={{ "client-id": "test" }}>
             <div className="donation">
-            <h1 style={{paddingBottom: '25px', fontFamily: "McLaren"}}>Love our Site?</h1>
+            <h1 style={{paddingBottom: '25px', fontFamily: "McLaren", color: darkTheme ? '#f5ba13' : '#333'}}>Love our Site?</h1>
             <h3 style={{paddingBottom: '25px'}}>Please consider making a donation so that we can continue providing our service to you!</h3>
             <TextField 
             type="number" 
