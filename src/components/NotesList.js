@@ -15,7 +15,7 @@ const NotesList = ({ notes }) => {
         {notes.map((eachNote) => {
             return <div className="note" key={eachNote.id}>
                 <h1>{eachNote.title}</h1>
-                <p>{eachNote.content}</p>
+                <div><p>{eachNote.content}</p></div>
                 <button style={themeStyles}><PriorityHighOutlinedIcon/></button>
                 <Link to={`notes/${eachNote.id}`}><button style={themeStyles}><MoreHorizOutlinedIcon/></button></Link>
             </div>

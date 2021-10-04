@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "./components/Header";
-import Footer from "./components/Footer";
 import NoteDisplay from "./components/NoteDisplay";
 import Donate from "./components/Donate";
 import ExpandedNote from "./components/ExpandedNote";
@@ -25,7 +24,6 @@ function App() {
           </Route>
         </Switch>
       </div>
-      <Footer />
     </div>
     </Router>
 

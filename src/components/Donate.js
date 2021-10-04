@@ -1,14 +1,11 @@
-import React, { useState } from "react";
-import ReactDOM from "react-dom"
+import React from "react";
 import TextField from '@mui/material/TextField';
 import { PayPalButtons, PayPalScriptProvider } from "@paypal/react-paypal-js";
-import { useHistory, Redirect } from 'react-router-dom'
 import InputAdornment from '@mui/material/InputAdornment';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 
 function Donate() {
-    const history = useHistory();
   return (
     <PayPalScriptProvider options={{ "client-id": "test" }}>
             <div className="donation">
@@ -25,8 +22,8 @@ function Donate() {
                 </InputAdornment>
                 )
             }}
+            style={{paddingBottom: '25px'}}
             />
-            </div>
             <PayPalButtons
             style={{ color: "blue", shape: "pill", label: "pay", height: 40 }}
             createOrder={(data, actions) => {
@@ -46,6 +43,7 @@ function Donate() {
                 })
             }}
         />
+        </div>
     </PayPalScriptProvider>
   );
 }

@@ -39,6 +39,7 @@ footer p {
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
+  height: 240px;
   width: 240px;
   margin: 16px;
   float: left;
@@ -46,6 +47,7 @@ footer p {
 .note h1 {
   font-size: 1.1em;
   margin-bottom: 6px;
+  color: #f89a03;
 }
 .note p {
   font-size: 1.1em;
@@ -53,7 +55,12 @@ footer p {
   white-space: pre-wrap;
   word-wrap: break-word;
 }
-
+.note div {
+  width: 21ch;
+  overflow: hidden;
+  white-space: nowrap;
+  height: 150px;
+}
 .note button {
   background-color: transparent;
   position: relative;
@@ -137,6 +144,7 @@ form.create-note button {
   align-items: center;
   text-align: center;
   line-height: 1.6;
+  padding-top: 50px;
 }
 .indv-note h1, p {
   padding-bottom: 30px;

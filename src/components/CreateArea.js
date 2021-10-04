@@ -2,12 +2,18 @@ import React, { useState } from "react";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
+import { useTheme } from "./ThemeContext";
 
 const CreateArea = () => {
   const [isExpanded, setExpanded] = useState(false);
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("")
+
+  const darkTheme = useTheme()
+  const themeStyles= {
+            backgroundColor: darkTheme ? '#333' : '#f5ba13',
+        }
 
   const submitNote = (e) => {
      const note = { title, content };
@@ -44,7 +50,7 @@ const CreateArea = () => {
           placeholder="Take a note..."
           rows={isExpanded ? 3 : 1}
         />
-        <Zoom in={isExpanded}><Fab onClick={submitNote}><AddCircleOutlineIcon/></Fab></Zoom>
+        <Zoom in={isExpanded}><Fab onClick={submitNote} style={themeStyles}><AddCircleOutlineIcon/></Fab></Zoom>
       </form>
     </div>
   );
