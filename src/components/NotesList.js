@@ -2,10 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import PriorityHighOutlinedIcon from '@mui/icons-material/PriorityHighOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
+import { useTheme } from "./ThemeContext";
 
 const NotesList = ({ notes }) => {
-    
-   
+    const darkTheme = useTheme()
+    const themeStyles= {
+            color: darkTheme ? '#333' : '#f5ba13',
+        }
     
     return (
         <div>
@@ -13,8 +16,8 @@ const NotesList = ({ notes }) => {
             return <div className="note" key={eachNote.id}>
                 <h1>{eachNote.title}</h1>
                 <p>{eachNote.content}</p>
-                <button><PriorityHighOutlinedIcon/></button>
-                <Link to={`notes/${eachNote.id}`}><button><MoreHorizOutlinedIcon/></button></Link>
+                <button style={themeStyles}><PriorityHighOutlinedIcon/></button>
+                <Link to={`notes/${eachNote.id}`}><button style={themeStyles}><MoreHorizOutlinedIcon/></button></Link>
             </div>
         })}
         </div>

@@ -15,8 +15,8 @@ const Header = () => {
        backgroundColor: darkTheme ? '#333' : '#f5ba13',
        }
     const buttons = [
-        <Button key="one"><Link to="/donate" className="text-link">Donate</Link></Button>,
-        <Button key="three" onClick={toggleTheme}>{darkTheme ? <Brightness7Icon/> : <Brightness4Icon/>}</Button>,
+        <Button key="one" style={{border: "none"}}><Link to="/donate" className="text-link">Donate</Link></Button>,
+        <Button key="three" onClick={toggleTheme} style={{color: "white", border: "none"}}>{darkTheme ? <Brightness7Icon/> : <Brightness4Icon/>}</Button>,
       ];
 
     return (
@@ -25,7 +25,7 @@ const Header = () => {
                 <div className="navbar">
                 <Link to="/" className="text-link"><h1><NoteAltOutlinedIcon/> MyKeeper</h1></Link>
                 <div className="links">
-                <ButtonGroup color="inherit" size="large" aria-label="large button group">
+                <ButtonGroup size="large" aria-label="large button group">
                 {buttons}
                 </ButtonGroup>
                 </div>
