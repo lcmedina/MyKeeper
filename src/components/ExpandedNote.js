@@ -1,12 +1,14 @@
 import { useParams, useHistory } from "react-router";
 import useFetch from "./useFetch"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { useTheme } from "./ThemeContext";
 
 
 const ExpandNote = () => {
     const {id} = useParams();
     const history = useHistory();
     const { data: note } = useFetch('http://localhost:8000/notes/' + id);
+    const darkTheme = useTheme()
 
     const handleDelete = () => {
         fetch('http://localhost:8000/notes/' + note.id, {
@@ -20,7 +22,7 @@ const ExpandNote = () => {
         <div>
             {note && (
                 <div className="indv-note">
-                <h1>{note.title}</h1>
+                <h1 style={{color: darkTheme ? '#f5ba13' : '#333', fontFamily: "McLaren"}}>{note.title}</h1>
                 <p>{note.content}</p>
                 <button onClick={handleDelete} className="delete"><DeleteOutlineIcon fontSize="large"/><h5 style={{color: '#C6262A'}}>Delete This Note</h5></button>
                 </div>
