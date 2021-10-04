@@ -15,9 +15,8 @@ const Header = () => {
        backgroundColor: darkTheme ? '#333' : '#f5ba13',
        }
     const buttons = [
-        <Button key="one"><Link to="/donate" className="text-link">Donate</Link></Button>,
-        <Button key="two"><Link to="/contact" className="text-link">Contact</Link></Button>,
-        <Button key="three" onClick={toggleTheme} style={{color: "white"}}>{darkTheme ? <Brightness7Icon/> : <Brightness4Icon/>}</Button>,
+        <Button key="one" style={{border: "none"}}><Link to="/donate" className="text-link">Donate</Link></Button>,
+        <Button key="three" onClick={toggleTheme} style={{color: "white", border: "none"}}>{darkTheme ? <Brightness7Icon/> : <Brightness4Icon/>}</Button>,
       ];
 
     return (

@@ -22,7 +22,7 @@ const ExpandNote = () => {
                 <div className="indv-note">
                 <h1>{note.title}</h1>
                 <p>{note.content}</p>
-                <button onClick={handleDelete}><DeleteOutlineIcon/></button>
+                <button onClick={handleDelete} className="delete"><DeleteOutlineIcon fontSize="large"/><h5 style={{color: '#C6262A'}}>Delete This Note</h5></button>
                 </div>
             )}
         </div>
