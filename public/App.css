@@ -100,7 +100,6 @@ form.create-note button {
   cursor: pointer;
   outline: none;
 }
-
 .center {
   display: flex;
   justify-content: center;
@@ -126,4 +125,22 @@ form.create-note button {
   justify-content: center;
   padding: 75px;
   text-align: center;
+}
+.delete {
+  background-color: transparent;
+  border: none;
+  color: #C6262A;
+}
+.indv-note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  line-height: 1.6;
+}
+.indv-note h1, p {
+  padding-bottom: 30px;
+}
+.indv-note button {
+  cursor: pointer;
 }
