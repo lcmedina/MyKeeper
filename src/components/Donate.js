@@ -9,8 +9,8 @@ function Donate() {
   return (
     <PayPalScriptProvider options={{ "client-id": "test" }}>
             <div className="donation">
-            <h1 style={{paddingBottom: '25px'}}>Love our Site?</h1>
-            <h3 style={{paddingBottom: '25px'}}>Please consider making a donation so that we can continue providing out service to you!</h3>
+            <h1 style={{paddingBottom: '25px', fontFamily: "McLaren"}}>Love our Site?</h1>
+            <h3 style={{paddingBottom: '25px'}}>Please consider making a donation so that we can continue providing our service to you!</h3>
             <TextField 
             type="number" 
             id="amount" 
