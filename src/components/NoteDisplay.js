@@ -1,36 +1,14 @@
-import React, {useState} from "react";
-import Note from "./Note";
+import React from "react";
 import CreateArea from "./CreateArea";
+import NotesList from "./NotesList";
+import useFetch from "./useFetch";
 
 const NoteDisplay = () => {
-    const [notes, setNotes] = useState([]);
-
-    const addNote = (newNote) => {
-      setNotes((prevNotes) => {
-        return [...prevNotes, newNote];
-      });
-    };
-  
-    const deleteNote = (id) => {
-     setNotes(prevNotes => {
-       return prevNotes.filter((noteItem, index) => {
-         return index !== id;
-       })
-     })
-    }
-
+  const { data: notes } = useFetch('http://localhost:8000/notes')
     return ( 
         <div>
-            <CreateArea onAdd={addNote}/>
-       {notes.map((eachNote, index) => {
-        return <Note
-        key={index} //swap out for uuid
-        id={index}
-        title={eachNote.title}
-        content={eachNote.content}
-        onDelete={deleteNote}
-        />
-      })}
+        <CreateArea />
+       {notes && <NotesList notes={notes}/>}
         </div>
         
      );
