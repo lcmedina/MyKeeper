@@ -3,31 +3,24 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 
-function CreateArea(props) {
+const CreateArea = () => {
   const [isExpanded, setExpanded] = useState(false);
 
-  const [note, setNote] = useState({
-    title: "",
-    content: ""
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setNote((prevNote) => {
-      return {
-        ...prevNote,
-        [name]: value
-      };
-    });
-  };
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("")
 
   const submitNote = (e) => {
-    props.onAdd(note);
-    setNote({
-      title: "",
-      content: ""
-    })
+     const note = { title, content };
     e.preventDefault();
+
+    fetch('http://localhost:8000/notes', {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(note)
+    }).then(()=>{
+      window.location.reload(false)
+    })
+
   };
 
   const expand = (e) => {
@@ -39,15 +32,15 @@ function CreateArea(props) {
       <form className="create-note">
         {isExpanded && <input
           name="title"
-          value={note.title}
-          onChange={handleChange}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
           placeholder="Title"
         />}
         <textarea
           name="content"
-          value={note.content}
+          value={content}
           onClick={expand}
-          onChange={handleChange}
+          onChange={(e) => setContent(e.target.value)}
           placeholder="Take a note..."
           rows={isExpanded ? 3 : 1}
         />
