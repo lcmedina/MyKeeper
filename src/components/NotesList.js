@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 import PriorityHighOutlinedIcon from '@mui/icons-material/PriorityHighOutlined';
@@ -9,6 +10,7 @@ const NotesList = ({ notes }) => {
     const themeStyles= {
             color: darkTheme ? '#333' : '#f5ba13',
         }
+    
     return (
         <div>
         {notes.map((eachNote) => {

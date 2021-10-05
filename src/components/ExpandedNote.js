@@ -7,7 +7,7 @@ import { useTheme } from "./ThemeContext";
 const ExpandNote = () => {
     const {id} = useParams();
     const history = useHistory();
-    const { data: note } = useFetch('http://localhost:8000/notes' + id);
+    const { data: note } = useFetch('http://localhost:8000/notes/' + id);
     const darkTheme = useTheme()
 
     const handleDelete = () => {
