@@ -18,7 +18,7 @@ const CreateArea = () => {
      const note = { title, content };
     e.preventDefault();
 
-    fetch('http://localhost:8000/notes', {
+    fetch('https://react-my-keeper.herokuapp.com/notes', {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(note)
