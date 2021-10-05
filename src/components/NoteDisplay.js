@@ -5,7 +5,7 @@ import useFetch from "./useFetch";
 
 const NoteDisplay = () => {
 
-  const { data: notes } = useFetch('https://react-my-keeper.herokuapp.com/notes')
+  const { data: notes } = useFetch('http://localhost:8000/notes')
     return ( 
         <div>
         <CreateArea />
