@@ -14,7 +14,6 @@ const CreateArea = () => {
   const themeStyles= {
             backgroundColor: darkTheme ? '#333' : '#f5ba13',
         }
-
   const submitNote = (e) => {
      const note = { title, content };
     e.preventDefault();
@@ -24,7 +23,7 @@ const CreateArea = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(note)
     }).then(()=>{
-      window.location.reload(false)
+      window.location.reload()
     })
 
   };
