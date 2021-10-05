@@ -114,10 +114,14 @@ You will need the latest version of node for this project.
 <!-- ROADMAP -->
 ## Roadmap
 
-Future updates:
+### Future Updates
 * MongoDB - Currently all notes are stored in a JSON server.
 * User Accounts - Allow private accounts to store everyone's own, unique ideas.
 * Tag Notes - Add flags to notes for different priorities.
+
+### Known Bugs
+* Currently the 'important' flag is not functioning.
+* Dark mode does not persist when the page is refreshed.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
