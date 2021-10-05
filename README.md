@@ -144,7 +144,7 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-[Laura Medina](www.laurachristine.net) - lcmedina390@gmail.com
+[Laura Medina](https://www.laurachristine.net) - lcmedina390@gmail.com
 
 Project Link: [https://github.com/lcmedina/MyKeeper](https://github.com/lcmedina/MyKeeper)
 
