@@ -4,12 +4,15 @@ import { Link } from "react-router-dom";
 import PriorityHighOutlinedIcon from '@mui/icons-material/PriorityHighOutlined';
 import MoreHorizOutlinedIcon from '@mui/icons-material/MoreHorizOutlined';
 import { useTheme } from "./ThemeContext";
+import db from "../server"
+
 
 const NotesList = ({ notes }) => {
     const darkTheme = useTheme()
     const themeStyles= {
             color: darkTheme ? '#333' : '#f5ba13',
         }
+    
     
     return (
         <div>

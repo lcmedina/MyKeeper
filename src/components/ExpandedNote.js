@@ -11,7 +11,7 @@ const ExpandNote = () => {
     const darkTheme = useTheme()
 
     const handleDelete = () => {
-        fetch('http://localhost:8000/notes' + note.id, {
+        fetch('http://localhost:8000/notes/' + note.id, {
             method: 'DELETE'
         }).then(()=>{
             history.push("/")

@@ -3,6 +3,8 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import { useTheme } from "./ThemeContext";
+import { collection, addDoc } from "firebase/firestore";
+import db from "../server";
 
 const CreateArea = () => {
   const [isExpanded, setExpanded] = useState(false);
@@ -14,19 +16,26 @@ const CreateArea = () => {
   const themeStyles= {
             backgroundColor: darkTheme ? '#333' : '#f5ba13',
         }
-  const submitNote = (e) => {
-     const note = { title, content };
-    e.preventDefault();
 
-    fetch('http://localhost:8000/notes', {
-      method: 'POST',
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(note)
-    }).then(()=>{
-      window.location.reload()
-    })
+  // const submitNote = (e) => {
+  //    const note = { title, content };
+  //   e.preventDefault();
 
-  };
+  //   fetch('http://localhost:8000/notes', {
+  //     method: 'POST',
+  //     headers: { "Content-Type": "application/json" },
+  //     body: JSON.stringify(note)
+  //   }).then(()=>{
+  //     window.location.reload()
+  //   })
+
+  // };
+
+
+const writeNote = async () => {
+  const note = {title, content}
+  await db.collection("notes").add(note)
+}
 
   const expand = (e) => {
     setExpanded(true)
@@ -49,7 +58,7 @@ const CreateArea = () => {
           placeholder="Take a note..."
           rows={isExpanded ? 3 : 1}
         />
-        <Zoom in={isExpanded}><Fab onClick={submitNote} style={themeStyles}><AddCircleOutlineIcon/></Fab></Zoom>
+        <Zoom in={isExpanded}><Fab onClick={writeNote} style={themeStyles}><AddCircleOutlineIcon/></Fab></Zoom>
       </form>
     </div>
   );
