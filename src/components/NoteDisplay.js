@@ -2,13 +2,10 @@ import React from "react";
 import CreateArea from "./CreateArea";
 import NotesList from "./NotesList";
 import useFetch from "./useFetch";
-import { collection, getDocs } from "firebase/firestore";
-import db from "../server";
 
 
 const NoteDisplay = () => {
-   console.log(db)
-   const { data: notes } = useFetch('http://localhost:8000/notes')
+   const { data: notes } = useFetch()
     return ( 
         <div>
         <CreateArea />
