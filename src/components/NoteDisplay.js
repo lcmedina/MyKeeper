@@ -5,7 +5,7 @@ import useFetch from "./useFetch";
 
 
 const NoteDisplay = () => {
-   const { data: notes } = useFetch()
+   const { data: notes } = useFetch();
     return ( 
         <div>
         <CreateArea />

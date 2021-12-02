@@ -25,7 +25,8 @@ const CreateArea = () => {
     const newNoteRef = push(notesRef);
     set(newNoteRef, {
       title,
-      content
+      content,
+      id: newNoteRef.key
     })
 
     // fetch('https://keeper-ac59e-default-rtdb.firebaseio.com/notes', {

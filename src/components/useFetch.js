@@ -3,12 +3,16 @@ import db from "../server";
 import { ref, onValue } from "firebase/database";
 
 const useFetch = () => {
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
 
     useEffect(() => {
       const noteRef = ref(db, 'notes/');
+      let allNotes = []
       onValue(noteRef, (snapshot) => {
-        setData(snapshot.val())
+        snapshot.forEach((note) => {
+          allNotes.push(note.val())
+        });
+        setData(allNotes);
       })
     // fetch(url)
     // .then(res => {
@@ -18,7 +22,7 @@ const useFetch = () => {
     //   setData(data);
     // })
   }, [])
-
+  console.log(data)
   return { data }
 }
  
