@@ -27,15 +27,9 @@ const CreateArea = () => {
       title,
       content,
       id: newNoteRef.key
+    }).then(() => {
+      window.location.reload()
     })
-
-    // fetch('https://keeper-ac59e-default-rtdb.firebaseio.com/notes', {
-    //   method: 'POST',
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(note)
-    // }).then(()=>{
-    //   window.location.reload()
-    // })
 
   };
 
