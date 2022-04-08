@@ -8,7 +8,7 @@ import { db } from "../server"
 const ExpandNote = () => {
     const {id} = useParams();
     const history = useHistory();
-    const { data: note } = useFetch('https://my-keeper-db.herokuapp.com/notes/' + id);
+    const { data: note } = useFetch('https://react-my-keeper.netlify.app/notes/' + id);
     const darkTheme = useTheme()
 
     const handleDelete = () => {
