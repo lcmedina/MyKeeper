@@ -3,7 +3,7 @@ import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import Fab from '@mui/material/Fab';
 import Zoom from '@mui/material/Zoom';
 import { useTheme } from "./ThemeContext";
-import { ref, set, push, child, update } from "firebase/database";
+import { ref, set, push } from "firebase/database";
 import db from "../server";
 
 const CreateArea = () => {
@@ -18,7 +18,7 @@ const CreateArea = () => {
         }
 
   const submitNote = (e) => {
-     const note = { title, content };
+    // const note = { title, content };
     e.preventDefault();
 
     const notesRef = ref(db, 'notes');
