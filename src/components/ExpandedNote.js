@@ -1,16 +1,23 @@
 import { useParams, useHistory } from "react-router";
-import useFetch from "./useFetch"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTheme } from "./ThemeContext";
-import { ref, remove } from "firebase/database";
+import { onValue, ref, remove } from "firebase/database";
 import db from "../server"
+import { useEffect, useState } from "react";
 
 
 const ExpandNote = () => {
+    const [note, setNote] = useState()
     const {id} = useParams();
     const history = useHistory();
-    const { data: note } = useFetch('https://react-my-keeper.netlify.app/notes/' + id);
     const darkTheme = useTheme()
+    const noteRef = ref(db, 'notes/' + id)
+
+    useEffect(() => {
+        onValue(noteRef, (snapshot) => {
+            setNote(snapshot.val())
+        })
+    }, [noteRef])
 
     const handleDelete = () => {
         remove(ref(db, 'notes/' + id))
