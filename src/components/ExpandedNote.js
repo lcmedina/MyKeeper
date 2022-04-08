@@ -2,7 +2,8 @@ import { useParams, useHistory } from "react-router";
 import useFetch from "./useFetch"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTheme } from "./ThemeContext";
-import { db } from "../server"
+import { ref, remove } from "firebase/database";
+import db from "../server"
 
 
 const ExpandNote = () => {
@@ -12,9 +13,8 @@ const ExpandNote = () => {
     const darkTheme = useTheme()
 
     const handleDelete = () => {
-        fetch('http://localhost:8000/notes/' + note.id, {
-            method: 'DELETE'
-        }).then(()=>{
+        remove(ref(db, 'notes/' + id))
+        .then(()=>{
             history.push("/")
         })
     }
