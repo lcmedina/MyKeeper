@@ -2,12 +2,13 @@ import { useParams, useHistory } from "react-router";
 import useFetch from "./useFetch"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTheme } from "./ThemeContext";
+import { db } from "../server"
 
 
 const ExpandNote = () => {
     const {id} = useParams();
     const history = useHistory();
-    const { data: note } = useFetch('http://localhost:8000/notes/' + id);
+    const { data: note } = useFetch('https://my-keeper-db.herokuapp.com/notes/' + id);
     const darkTheme = useTheme()
 
     const handleDelete = () => {
